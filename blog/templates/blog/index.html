@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_title %}Blog{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/post-template.css' %}">
+{% endblock css %}
+
+
+{% block body_content %}
+
+{% comment %} welcome section {% endcomment %}
+<section id="welcome">
+  <header>
+    <img src="{% static 'blog/images/profile1.jpg' %}" alt="Reed - The author of this Blog." />
+    <h2>Reed's Blog</h2>
+  </header>
+  <p>Hi, I'm Reed and I love to blog about tech and foods.</p>
+</section>
+
+{% comment %} latest posts section {% endcomment %}
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post-template.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+{% comment %} about section {% endcomment %}
+<section id="about">
+  <h2>What I do</h2>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam in placeat magnam
+    numquam repudiandae molestias quo? Facilis, minima similique nihil error, quaerat
+    consequuntur iste exercitationem molestias, inventore eos necessitatibus aut.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam consequatur tempora
+    voluptas similique laborum eligendi et incidunt! Eos suscipit asperiores beatae
+    voluptatem itaque sed quam rem quibusdam at vitae! Fugiat!
+  </p>
+</section>
+{% endblock body_content %}
