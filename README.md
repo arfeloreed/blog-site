@@ -2,4 +2,4 @@
 Simple blog website created through Django
 
 
-Django made web app blog without database.
+Django made web app blog with database.
