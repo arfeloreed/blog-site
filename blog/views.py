@@ -52,6 +52,7 @@ class IndexView(ListView):
 #         },
 #     )
 
+
 class AllPostsView(ListView):
     template_name = "blog/posts.html"
     model = Post
@@ -80,6 +81,7 @@ class AllPostsView(ListView):
 #         context["tags"] = self.object.tags.all()
 #         context["form"] = CommentForm()
 #         return context
+
 
 # rendering indexView using View class based for get and post request
 class PostDetailView(View):
