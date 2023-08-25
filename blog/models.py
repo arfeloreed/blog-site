@@ -27,7 +27,7 @@ class Author(models.Model):
 # model for all posts objects
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    image = models.CharField(max_length=70)
+    image = models.ImageField(null=True, upload_to="posts_images")
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, db_index=True)
     excerpt = models.CharField(max_length=200)
@@ -36,3 +36,15 @@ class Post(models.Model):
         Author, on_delete=models.SET_NULL, null=True, related_name="posts"
     )
     tags = models.ManyToManyField(Tag)
+
+    def __str__(self):
+        return self.title
+
+
+# model for comment objects
+class Comment(models.Model):
+    username = models.CharField(max_length=120)
+    email = models.EmailField()
+    comment = models.TextField(max_length=480)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
