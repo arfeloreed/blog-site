@@ -1,12 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
-from django.views import View
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.views import View
+from django.views.generic import DetailView, ListView
 
-from .models import Post
 from .forms import CommentForm
-
+from .models import Post
 
 # variable
 all_posts = Post.objects.all().order_by("-date")
